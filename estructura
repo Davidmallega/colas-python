@@ -1,0 +1,15 @@
+/project_root
+    /servicios
+        /servicios_generales
+            __init__.py
+        /administracion
+            __init__.py
+        /facturacion
+            __init__.py
+        /tecnologia
+            __init__.py
+        /mercadeo
+            __init__.py
+    templates/
+        index.html
+    app.py

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Cliente</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='background.css') }}">
+</head>
+<body>
+    <div class="container">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo">
+        <h1>Ingresar Cliente</h1>
+        <form action="{{ url_for('registrar_cliente') }}" method="post">
+            <input type="text" name="cliente" placeholder="Nombre del cliente" required>
+            <select name="servicio" required>
+                <option value="" disabled selected>Seleccione un servicio</option>
+                <option value="servicios_generales">Servicios Generales</option>
+                <option value="administracion">Administración</option>
+                <option value="facturacion">Facturación</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="mercadeo">Mercadeo</option>
+            </select>
+            <button type="submit">Registrar</button>
+        </form>
+        <a href="{{ url_for('colas') }}" class="button-link">Colas</a>
+    </div>
+</body>
+</html>
+

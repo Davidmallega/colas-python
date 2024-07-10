@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Colas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colas.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='background.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Gestión de Colas del Centro Comercial Costa del Mar</h2>
+        <div class="flex-container">
+            {% for servicio, cola in servicios.items() %}
+                <div class="servicio-container">
+                    <h2>{{ servicio.replace('_', ' ').capitalize() }}</h2>
+                    <form action="{{ url_for(servicio + '.atender') }}" method="get">
+                        <button type="submit">Atender al Siguiente Cliente</button>
+                    </form>
+                    <h3>Clientes en la cola:</h3>
+                    <ul>
+                        {% for cliente in cola %}
+                            <li>{{ cliente }}</li>
+                        {% else %}
+                            <li>No hay clientes en la cola</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+        <a href="{{ url_for('index') }}" class="button-inicio">Inicio</a>
+    </div>
+    
+</body>
+</html>
